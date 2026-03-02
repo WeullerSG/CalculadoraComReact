@@ -66,18 +66,18 @@ const handleSum = useCallback(() => {
     }
   }, [firstNumber, currentNumber]);
 
-  const handleEquals = () => {
-    if (firstNumber !== "0" && operation !== "") {
-      switch (operation) {
-        case "+": handleSum(); break;
-        case "-": handleLess(); break;
-        case "*": handleMult(); break;
-        case "/": handleDiv(); break;
-        default: break;
-      }
-      setFirstNumber("0")
+const handleEquals = () => {
+  if (firstNumber !== "0" && operation !== "") {
+    switch (operation) {
+      case "+": handleSum(); break;
+      case "-": handleLess(); break;
+      case "*": handleMult(); break;
+      case "/": handleDiv(); break;
+      default: break;
     }
-  };
+    setFirstNumber("0")
+  }
+};
 
 useEffect(() => {
   const handleKeyDown = (e) => {
