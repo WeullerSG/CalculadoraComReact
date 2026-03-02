@@ -1,7 +1,7 @@
 import { Container, Content, Row } from "./style";
 import Input from "./components/Input";
 import NumberButton from "./components/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback} from "react";
 
 function App() {
   const [currentNumber, setCurrentNumber] = useState("0");
