@@ -79,31 +79,31 @@ const handleSum = useCallback(() => {
     }
   };
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      const { key } = e;
+useEffect(() => {
+  const handleKeyDown = (e) => {
+    const { key } = e;
 
-      if (!isNaN(key) && key !== " ") return handleNumber(key);
+    if (!isNaN(key) && key !== " ") return handleNumber(key);
 
-      switch (key) {
-        case "+": return handleSum();
-        case "-": return handleLess();
-        case "*": return handleMult();
-        case "/":
-          e.preventDefault();
-          return handleDiv();
-        case "Enter":
-        case "=": return handleEquals();
-        case "Backspace": return handleNumber("");
-        case "Escape": return handleClear();
-        default: break;
-      }
-    };
+    switch (key) {
+      case "+": return handleSum();
+      case "-": return handleLess();
+      case "*": return handleMult();
+      case "/":
+        e.preventDefault();
+        return handleDiv();
+      case "Enter":
+      case "=": return handleEquals();
+      case "Backspace": return handleNumber("");
+      case "Escape": return handleClear();
+      default: break;
+    }
+  };
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentNumber, firstNumber, operation]);
+  window.addEventListener("keydown", handleKeyDown);
+  return () => window.removeEventListener("keydown", handleKeyDown);
 
+}, [handleSum, handleLess, handleMult, handleDiv, handleEquals]);
 
   return (
     <div className="App">
