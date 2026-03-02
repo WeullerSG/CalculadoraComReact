@@ -18,19 +18,19 @@ function App() {
     setCurrentNumber((previa) => `${previa === "0" ? "" : previa}${number}`);
   };
 
-  const handleSum = () => {
-    if (firstNumber === "0") {
-      setFirstNumber(String(currentNumber));
-      setCurrentNumber("0");
-      setOperation("+");
-    } else {
-      const sum = Number(firstNumber) + Number(currentNumber);
-      setCurrentNumber(String(sum));
-      setOperation("");
-    }
-  };
+const handleSum = useCallback(() => {
+  if (firstNumber === "0") {
+    setFirstNumber(String(currentNumber));
+    setCurrentNumber("0");
+    setOperation("+");
+  } else {
+    const sum = Number(firstNumber) + Number(currentNumber);
+    setCurrentNumber(String(sum));
+    setOperation("");
+  }
+}, [firstNumber, currentNumber]);
 
-  const handleLess = () => {
+  const handleLess = useCallback(() => {
     if (firstNumber === "0") {
       setFirstNumber(String(currentNumber));
       setCurrentNumber("0");
@@ -40,9 +40,9 @@ function App() {
       setCurrentNumber(String(less));
       setOperation("");
     }
-  };
+  }, [firstNumber, currentNumber]);
 
-  const handleMult = () => {
+  const handleMult = useCallback(() => {
     if (firstNumber === "0") {
       setFirstNumber(String(currentNumber));
       setCurrentNumber("0");
@@ -52,9 +52,9 @@ function App() {
       setCurrentNumber(String(mult));
       setOperation("");
     }
-  };
+  }, [firstNumber, currentNumber]);
 
-  const handleDiv = () => {
+  const handleDiv = useCallback(() => {
     if (firstNumber === "0") {
       setFirstNumber(String(currentNumber));
       setCurrentNumber("0");
@@ -64,7 +64,7 @@ function App() {
       setCurrentNumber(String(div));
       setOperation("");
     }
-  };
+  }, [firstNumber, currentNumber]);
 
   const handleEquals = () => {
     if (firstNumber !== "0" && operation !== "") {
