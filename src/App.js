@@ -1,4 +1,4 @@
-import { Container, Content, Row, Column } from "./style";
+import { Container, Content, Row } from "./style";
 import Input from "./components/Input";
 import NumberButton from "./components/Button";
 import { useState, useEffect } from "react";
@@ -103,7 +103,7 @@ function App() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentNumber, firstNumber, operation]);
-  
+
 
   return (
     <div className="App">
