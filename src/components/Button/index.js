@@ -1,4 +1,4 @@
-import { ButtonContainer, Grid } from "./styles";
+import { ButtonContainer } from "./styles";
 
 const NumberButton = ({ label, onCLick }) => {
   return (
